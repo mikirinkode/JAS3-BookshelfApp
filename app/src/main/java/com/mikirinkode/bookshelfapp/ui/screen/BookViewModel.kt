@@ -1,6 +1,5 @@
 package com.mikirinkode.bookshelfapp.ui.screen
 
-import android.net.http.HttpException
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -18,7 +17,7 @@ import java.io.IOException
 sealed interface UiState{
     object Initial : UiState
     object Loading : UiState
-    data class Success(val photos: List<BookVolume?>?) : UiState
+    data class Success(val bookVolumes: List<BookVolume?>?) : UiState
     data class Error(val errorMessage: String) : UiState
 }
 
