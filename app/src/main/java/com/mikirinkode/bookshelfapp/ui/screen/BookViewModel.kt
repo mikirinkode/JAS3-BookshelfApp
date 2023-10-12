@@ -29,6 +29,10 @@ class BookViewModel(
         private set
 
 
+    init {
+        getBooks()
+    }
+
     fun getBooks() {
         viewModelScope.launch {
             bookState = UiState.Loading
