@@ -3,7 +3,7 @@ package com.mikirinkode.bookshelfapp.data
 import com.mikirinkode.bookshelfapp.model.BookVolume
 import com.mikirinkode.bookshelfapp.network.BookApiService
 
-private const val KEY = "AIzaSyDUJe7W7_nlW-UhGZpAegM13ovawcoSeH8" // TODO: MOVE
+private const val KEY = "" // TODO: MOVE
 interface InterfaceBookRepository {
     suspend fun getBooks(): List<BookVolume?>?
 }
