@@ -43,6 +43,7 @@ import com.mikirinkode.bookshelfapp.model.BookVolume
 import com.mikirinkode.bookshelfapp.ui.component.ErrorCard
 import com.mikirinkode.bookshelfapp.ui.component.LoadingIndicator
 import com.mikirinkode.bookshelfapp.ui.theme.BookshelfAppTheme
+import com.mikirinkode.bookshelfapp.utils.Formatter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -109,9 +110,6 @@ fun BookItemCard(
     bookVolume: BookVolume,
     modifier: Modifier = Modifier
 ) {
-
-    val categories = (bookVolume.volumeInfo?.categories)?.joinToString(" #", "#")
-
     Box(
         modifier = modifier
             .background(
@@ -173,6 +171,7 @@ fun BookItemCard(
                 modifier = Modifier.padding(start = 8.dp, end = 8.dp, bottom = 8.dp)
             ) {
                 Column() {
+                    val categories = (bookVolume.volumeInfo?.categories)?.joinToString(" #", "#")
                     if (categories != null){
                         Text("$categories", color = MaterialTheme.colorScheme.primary)
                     }
@@ -180,7 +179,12 @@ fun BookItemCard(
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Text("Price: IDR${bookVolume.saleInfo?.listPrice?.amount ?: " -"}", fontSize = 14.sp)
+                        val price = bookVolume.saleInfo?.listPrice?.amount ?: 0
+                        if (price != 0){
+                            Text(Formatter.formatAsMoney(price))
+                        } else {
+                            Text("-Not For Sale-")
+                        }
                     }
                 }
             }

@@ -1,6 +1,5 @@
 package com.mikirinkode.bookshelfapp.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
